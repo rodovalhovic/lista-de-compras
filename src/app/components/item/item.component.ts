@@ -11,6 +11,7 @@ export class ItemComponent implements OnInit, OnChanges {
 
   @Input() item!: Item;
   @Output() emitindoParaEditar = new EventEmitter();
+  @Output() emitindoIdParaDeletar = new EventEmitter();
 
   faPen = faPen;
   faTrash = faTrash
@@ -21,8 +22,12 @@ export class ItemComponent implements OnInit, OnChanges {
 
   ngOnInit(): void { }
 
-   editarItem(){
+  editarItem(){
     this.emitindoParaEditar.emit(this.item);
-   }
+  }
+
+  deletarItem(){
+    this.emitindoIdParaDeletar.emit(this.item.id);
+  }
 
 }
